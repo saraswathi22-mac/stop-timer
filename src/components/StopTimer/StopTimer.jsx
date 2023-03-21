@@ -17,26 +17,39 @@ const StopTimer = () => {
 
     return () => clearInterval(interval);
   }, [timerOn]);
-  return (
-    <div className="">
-      <h2 className="">Stop Timer</h2>
 
-      <div className="">
+  return (
+    <div className="font-bold">
+      <h2 className="text-5xl tracking-wide text-center uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-violet-500 mt-8">
+        Stop timer
+      </h2>
+
+      <div className="flex justify-center text-4xl pt-12">
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
       </div>
 
-      <div className="">
+      <div className="flex justify-center gap-4 pt-12 text-2xl">
         {!timerOn && time === 0 && (
-          <button onClick={() => setTimerOn(true)}>Start</button>
+          <button onClick={() => setTimerOn(true)} className="btn-primary">
+            Start
+          </button>
         )}
-        {timerOn && <button onClick={() => setTimerOn(false)}>Stop</button>}
-        {!timerOn && time > 0 && (
-          <button onClick={() => setTime(0)}>Reset</button>
+        {timerOn && (
+          <button onClick={() => setTimerOn(false)} className="btn-primary">
+            Stop
+          </button>
         )}
         {!timerOn && time > 0 && (
-          <button onClick={() => setTimerOn(true)}>Resume</button>
+          <button onClick={() => setTime(0)} className="btn-primary">
+            Reset
+          </button>
+        )}
+        {!timerOn && time > 0 && (
+          <button onClick={() => setTimerOn(true)} className="btn-primary">
+            Resume
+          </button>
         )}
       </div>
     </div>
