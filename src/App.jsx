@@ -1,11 +1,7 @@
-import StopTimer from "./components/StopTimer/StopTimer"
+import StopTimer from "./components/StopTimer/StopTimer";
 
 function App() {
-  return (
-    <div className="App">
-      <StopTimer />
-    </div>
-  )
+  return <StopTimer />;
 }
 
-export default App
+export default App;
